@@ -96,6 +96,7 @@ final class Foo
      public const SOME_CONST = 'foo';
      public const SOME_OTHER_CONST = 'bar';
      
+     /** @var string */
      private $someProperty;
     
      public function inheritedMethod(): string
