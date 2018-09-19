@@ -47,7 +47,7 @@ interface Foo
     /**
      * @param string $key
      *
-     * @return Collection
+     * @return Collection|ItemInterface[]
      */
     public function getItemsWithoutKey(string $key): Collection;
 }
