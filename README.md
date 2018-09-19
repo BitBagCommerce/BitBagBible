@@ -114,7 +114,6 @@ final class Foo
              $item->doSomething();
              
              if (false === $item->getProperty()) { // Always use strict comparison with expected result on the left
-                 
                  return;
              }
              
