@@ -152,6 +152,22 @@ are those templates that should at least be customized.
 31. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly. Instead, inject resource factory into constructor and call `createNew()` on it. See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition and https://symfony.com/doc/current/service_container/service_decoration.html. The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
 32. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/2.0/cookbook/form/create_form_type_extension.html).
 33. We follow command pattern implemented in [SyliusShopApiPlugin](https://github.com/Sylius/SyliusShopApiPlugin). This means we use the same bus libraries and similar `Command, CommandHandler, ViewRepository, ViewFactory, View` approach.
+34. A method must not have more than two parameters inline. Otherwise split them with `\n`. In an edgecase where two parameters are too long to fit your (and potentially your colleagues) screen, also split them. Examples:
+
+```php
+public function foo(string $firstParam, string $secondParam): void;
+
+public function bar(
+    FirstParamInterface $firstParam, 
+    SecondParamInterface $secondParam,
+    ThirdParamInterface $thirdParam
+) :void;
+
+public function fooBarIsALongMethodName(
+    WithEvenALongerParameter $firstParam,
+    AndASecondParameterThatIsNotShorter $secondParameter
+): void;
+```
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
 **There is nothing called stupid question, but please ask it in a smart way :).**
