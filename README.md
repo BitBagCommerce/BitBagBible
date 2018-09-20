@@ -153,6 +153,17 @@ are those templates that should at least be customized.
 32. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/2.0/cookbook/form/create_form_type_extension.html).
 33. We follow command pattern implemented in [SyliusShopApiPlugin](https://github.com/Sylius/SyliusShopApiPlugin). This means we use the same bus libraries and similar `Command, CommandHandler, ViewRepository, ViewFactory, View` approach.
 34. A method must not have more than two parameters inline. Otherwise split them with `\n`. In an edgecase where two parameters are too long to fit your (and potentially your colleagues) screen, split them as well. Examples:
+36. PHPSpecs are always final classes with `function`s without `public` visibility and `: void` return type:
+
+```
+final class ProductSpec extends ObjectBehavior
+{
+    function it_follows_bitbag_coding_standards(): void
+    {
+        Assert::true($this->followsStandards());
+    }
+}
+```
 
 ```php
 public function foo(string $firstParam, string $secondParam): void;
