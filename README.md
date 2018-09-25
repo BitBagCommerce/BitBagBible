@@ -180,6 +180,14 @@ public function fooBarIsALongMethodName(
 ): void;
 ```
 35. `$elements = [1, 2, 3];` instead of `$elements = array(1, 2, 3);`
+36. Declare services with tags in the following convention:
+
+```yaml
+app.form.type.payment:
+    class: AppBundle\Form\Type\PaymentType
+    tags:
+        - { name: form.type }
+```
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
 **There is nothing called stupid question, but please ask it in a smart way :).**
