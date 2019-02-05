@@ -142,18 +142,9 @@ final class ProductSpec extends ObjectBehavior
 0. Make your code as simple as it's possible (follow single responsibilty principle).
 1. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow single responsibilty principle).
 2. Use `final` any time it is possible (in order to avoid infinite inheritance chain, in order to customize some parts use Decorator and Dependency Injection patterns).
-3. Be careful with using static fields.
+	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be a final classes because of reflection issues.
 4. Be more careful when you think Singleton is something you need in project. If it is you should go and rething the code.
-5. If that's not obvious yet, be careful with `static`, probably you will never need to use it.
-6. Don't use `Interface` suffix. By analysing the example below - It doesn't matter if it's an interface or an implementation. What matters is that `Foo` needs a cache, end of story. There's a principle behind interfaces: either you have one implementation and you don't need an interface, either you have many implementations and you create an interface.
-
-```php
-class Foo
-{
-    public function __construct(Cache $cache)
-    { ... }
-}
-```
+5. Be careful with `static` statement, probably you will never need to use it.
 
 ## Credits
 
