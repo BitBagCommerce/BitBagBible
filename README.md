@@ -146,9 +146,17 @@ final class ProductSpec extends ObjectBehavior
 4. Be more careful when you think Singleton is something you need in project. If it is you should go and rething the code.
 5. Be careful with `static` statement, probably you will never need to use it.
 
-## Credits
+## Workflow
 
-Any `*.php` file created by the BitBag developer, especially in Open Source, needs to have at least the following definition where the author is the user who created this file:
+0. Commit messages should be written (if only it's possible) with the following convention:
+`[Project spec state][Bundle] max 64 characters description in english written in Present Simple.`
+1. If there is an opened issue on Jira for a specific task, your branch should be named `sit_[ISSUE_NUMBER]`. If not, it should be named with the first letter of your name and your surname. In my case (Mikołaj Król) it would be `mkrol`.
+
+## Open Source
+
+0. Open source is made by forks if only more than one person is in charge of maintenance of specific package.
+1. We follow http://docs.sylius.org/en/latest/contributing/ contribution standards
+2. Any `*.php` file created by the BitBag developer (in Open Source project) needs to have at least the following definition where the author is the user who created this file:
 
 ```php
 <?php
@@ -210,17 +218,6 @@ Once you use PHPStorm (and yes, you do if you work at BitBag),
 you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
 PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment 
 are those templates that should at least be customized.
-
-## Workflow
-
-0. Commit messages should be written (if only it's possible) with the following convention:
-`[Project spec state][Bundle] max 64 characters description in english written in Present Simple.`
-1. If there is an opened issue on Jira for a specific task, your branch should be named `sit_[ISSUE_NUMBER]`. If not, it should be named with the first letter of your name and your surname. In my case (Mikołaj Król) it would be `mkrol`.
-
-## Open Source
-
-0. Open source is made by forks if only more than one person is in charge of maintenance of specific package.
-1. We follow http://docs.sylius.org/en/latest/contributing/ contribution standards
 
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
