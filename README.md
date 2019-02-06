@@ -4,9 +4,9 @@
 
 - [Code Style](#code-style)
 - [General](#general)
-- [Symfony / Sylius / Frameworks](#symfony-sylius-frameworks)
+- [Symfony / Sylius / Frameworks](#symfony--sylius--frameworks)
 - [Testing](#testing)
-- [OOP / Architecture](#oop-architecture)
+- [OOP / Architecture](#oop--architecture)
 - [Workflow](#workflow)
 - [Open Source](#open-source)
 
@@ -127,7 +127,7 @@ $flavors = [
 7. We follow command pattern implemented in [SyliusShopApiPlugin](https://github.com/Sylius/SyliusShopApiPlugin). This means we use the same bus libraries and similar `Command, CommandHandler, ViewRepository, ViewFactory, View` approach.
 
 
-### Testing
+## Testing
 
 0. Before you implement any new functional feature, write Behat scenario first (Gherkin, `*.feature` file).
 1. After writing the scenario, write a proper scenario execution (Contexts, Pages).
