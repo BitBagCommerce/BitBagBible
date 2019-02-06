@@ -89,7 +89,7 @@ public function bar(
     FirstParamInterface $firstParam, 
     SecondParamInterface $secondParam,
     ThirdParamInterface $thirdParam
-) :void;
+): void;
 
 public function fooBarIsALongMethodName(
     WithEvenALongerParameter $firstParam,
