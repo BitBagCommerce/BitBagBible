@@ -175,7 +175,7 @@ final class ProductSpec extends ObjectBehavior
  
  use Foo\Bar\App;
  
- final class BazBar implements Bar
+ final class Bar implements BarInterface
  {
      public const SOME_CONST = 'foo';
      public const SOME_OTHER_CONST = 'bar';
