@@ -1,7 +1,15 @@
-Coding bible
-------------
+# Coding bible
 
 *This project follows PSR-4 coding standards and those recommended by Sylius and Symfony projects in this order. It is extended based on experience of the whole BitBag team for everybody's sake.*
+
+- [Code Style](#code-style)
+- [General](#general)
+- [Symfony / Sylius / Frameworks](#symfony-sylius-frameworks)
+- [Testing](#testing)
+- [OOP / Architecture](#oop-architecture)
+- [Workflow](#workflow)
+- [Open Source](#open-source)
+
 
 ## Code Style
 
@@ -106,6 +114,7 @@ $flavors = [
 0. No `/.idea` and other local config files in `.gitignore`. Put them into global gitignore file, read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
 1. We are working on NIX systems and we don't like Windows nor are we solving it's existance goal and other problems.
 
+
 ## Symfony / Sylius / Frameworks
 
 0. Use YAML (`*.yaml`) for defining routings and configs;
@@ -146,11 +155,13 @@ final class ProductSpec extends ObjectBehavior
 4. Be more careful when you think Singleton is something you need in project. If it is you should go and rething the code.
 5. Be careful with `static` statement, probably you will never need to use it.
 
+
 ## Workflow
 
 0. Commit messages should be written (if only it's possible) with the following convention:
 `[Project spec state][Bundle] max 64 characters description in english written in Present Simple.`
 1. If there is an opened issue on Jira for a specific task, your branch should be named `sit_[ISSUE_NUMBER]`. If not, it should be named with the first letter of your name and your surname. In my case (Mikołaj Król) it would be `mkrol`.
+
 
 ## Open Source
 
