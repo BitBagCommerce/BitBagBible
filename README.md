@@ -70,7 +70,7 @@ final class Foo
 8. Before you implement any new functional feature, write Behat scenario first (Gherkin, `*.feature` file).
 9. After writing the scenario, write a proper scenario execution (Contexts, Pages).
 10. Before starting implementing new functional code, make sure all your core logic is covered with PHPSpec (code without framework dependencies, like Commands, Forms, Configuration, Fixtures, etc.)
-11. Make your code as simple as it's possible (follow single responsibilty principle).
+11. Make your code as simple as it's possible (follow single responsibilty principle and KISS principle).
 12. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow single responsibilty principle).
 13. Use `final` any time it is possible (in order to avoid infinite inheritance chain, in order to customize some parts use Decorator and Dependency Injection patterns).
 14. For Symfony services definitions in a single bundle use `form.yml`, `event_listener.yml`, etc. Don't put everything in the `services.yml` file, do it in public projects with only a few services. If you have more than one type of service inside your app, create a separate config file under `services/` directory.
