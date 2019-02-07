@@ -150,7 +150,7 @@ final class ProductSpec extends ObjectBehavior
 
 ## OOP / Architecture
 
-0. Make your code as simple as it's possible (follow single responsibilty principle).
+0. Make your code as simple as it's possible (follow single responsibilty principle and KISS principle).
 1. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow single responsibilty principle).
 2. Use `final` any time it is possible (in order to avoid infinite inheritance chain, in order to customize some parts use Decorator and Dependency Injection patterns).
 	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be a final classes because of reflection issues.
