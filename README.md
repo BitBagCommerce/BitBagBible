@@ -127,7 +127,7 @@ $flavors = [
 7. We follow command pattern implemented in [SyliusShopApiPlugin](https://github.com/Sylius/SyliusShopApiPlugin). This means we use the same bus libraries and similar `Command, CommandHandler, ViewRepository, ViewFactory, View` approach.
 8. Creating a CLI Command using Symfony Console Component should follow the following rules:
     - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution the return can be `1` or any different *error code number*.
-
+9. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
 
 ## Testing
 
