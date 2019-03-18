@@ -128,6 +128,8 @@ $flavors = [
 8. Creating a CLI Command using Symfony Console Component should follow the following rules:
     - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution the return can be `1` or any different *error code number*.
 9. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+10. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
+11. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
 
 ## Testing
 
