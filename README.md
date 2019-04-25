@@ -108,7 +108,10 @@ $flavors = [
 ```
 
 10. Good to follow practices from https://mnapoli.fr/approaching-coding-style-rationally/
-
+11. Once you use PHPStorm (and yes, you do if you work at BitBag), 
+you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
+PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment 
+are those templates that should at least be customized.
 
 ## General
 
@@ -266,11 +269,7 @@ final class SayHelloToTheWorldAction
 0. Use [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) whenever you can:
 <img src="doc/gitflow.png" />
 1. How to write a commit message and use Git in a proper way? Read [here](https://github.com/RomuloOliveira/commit-messages-guide)
-
-Once you use PHPStorm (and yes, you do if you work at BitBag), 
-you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
-PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment 
-are those templates that should at least be customized.
+2. If you use Git in IDE - make sure it follows all standards. We don't care what GUI/CLI you use as long as you know what happens under the hood.
 
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
