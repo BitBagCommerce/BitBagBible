@@ -262,6 +262,7 @@ final class SayHelloToTheWorldAction
 
 ## Git
 
+-1. Not confident with Git yet? Visit [the simple guide](http://rogerdudler.github.io/git-guide/)!
 0. Use [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) whenever you can:
 <img src="doc/gitflow.png" />
 1. How to write a commit message and use Git in a proper way? Read [here](https://github.com/RomuloOliveira/commit-messages-guide)
