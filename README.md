@@ -158,6 +158,35 @@ final class ProductSpec extends ObjectBehavior
 	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be a final classes because of reflection issues.
 4. Be more careful when you think Singleton is something you need in project. If it is you should go and rething the code.
 5. Be careful with `static` statement, probably you will never need to use it.
+6. Use ADR pattern for controllers. For instance, your controller should not extend any class and contain just an `__invoke` method. It should also be suffixed with `Action` keyword.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller\Action;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use App\Repository\FooRepositoryInterface;
+
+final class SayHelloToTheWorldAction
+{
+    /** @var FooRepositoryInterface */
+    private $fooRepository;
+
+    public function __construct(FooRepositoryInterface $fooRepository)
+    {
+        $this->fooRepository = $fooRepository;
+    }
+
+    public function __invoke(Request $request): Response
+    {
+        return new Response("Hello world!");
+    }
+}
+```
 
 
 ## Workflow
