@@ -113,6 +113,7 @@ $flavors = [
 
 0. No `/.idea` and other local config files in `.gitignore`. Put them into global gitignore file, read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
 1. We are working on NIX systems and we don't like Windows nor are we solving it's existance goal and other problems.
+2. Code that is not documented doesn't exist. Writing a documentation of a bundle/plugin/project is part of the development process. Remember that in the end someone else is going to use your code who might not know each part of it. This also applies to writing Github repository description, basic composer package information, etc. 
 
 
 ## Symfony / Sylius / Frameworks
