@@ -112,7 +112,8 @@ $flavors = [
 you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
 PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment 
 are those templates that should at least be customized.
-12. Always use Easy Coding Standard library for code cleanup. We use one from the official [Sylius Labs repository](https://github.com/SyliusLabs/CodingStandard). If you start the project from scratch, use PHPStan and include it in the CI process. We use the [official Sylius setup](https://github.com/Sylius/Sylius/blob/master/phpstan.neon).
+12. Always use Easy Coding Standard library for code cleanup. We use one from the official [Sylius Labs repository](https://github.com/SyliusLabs/CodingStandard). If you start the project from scratch, use PHPStan. We use the [official Sylius setup](https://github.com/Sylius/Sylius/blob/master/phpstan.neon).
+Both ECS and PHPStand should be included in the CI process.
 
 ## General
 
