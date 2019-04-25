@@ -9,6 +9,7 @@
 - [OOP / Architecture](#oop--architecture)
 - [Workflow](#workflow)
 - [Open Source](#open-source)
+- [Git](#git)
 
 
 ## Code Style
@@ -258,6 +259,11 @@ final class SayHelloToTheWorldAction
      }
  }
 ```
+
+## Git
+
+0. Use Gitflow whenever you can:
+<img src="doc/gitflow.png" />
 
 Once you use PHPStorm (and yes, you do if you work at BitBag), 
 you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
