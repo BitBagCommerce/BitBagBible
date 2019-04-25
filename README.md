@@ -262,8 +262,9 @@ final class SayHelloToTheWorldAction
 
 ## Git
 
-0. Use Gitflow whenever you can:
+0. Use [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) whenever you can:
 <img src="doc/gitflow.png" />
+1. How to write a commit message and use Git in a proper way? Read [here](https://github.com/RomuloOliveira/commit-messages-guide)
 
 Once you use PHPStorm (and yes, you do if you work at BitBag), 
 you can open your IDE preferences (`PHPStorm -> Preferences`) and search for `File and Code Templates`. 
