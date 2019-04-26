@@ -137,6 +137,7 @@ Both ECS and PHPStand should be included in the CI process.
 9. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
 10. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
 11. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
+12. Don't use Sylius theme if you have one template in your project.
 
 ## Testing
 
