@@ -1,6 +1,6 @@
 # Coding bible
 
-*This project follows PSR-4 coding standards and those recommended by Sylius and Symfony projects in this order. It is extended based on experience of the whole BitBag team for everybody's sake.*
+*This project follows PSR-4 coding standards and those recommended by Sylius and Symfony projects in this order. It is extended based on the experience of the whole BitBag team for everybody's sake.*
 
 - [Code Style](#code-style)
 - [General](#general)
@@ -81,7 +81,7 @@ final class Foo
 }
 ```
 
-8. A method must not have more than two parameters inline. Otherwise split them with `\n`. In an edgecase where two parameters are too long to fit your (and potentially your colleagues) screen, split them as well. Examples:
+8. A method must not have more than two parameters inline. Otherwise, split them with `\n`. In an edge-case where two parameters are too long to fit your (and potentially your colleagues) screen, split them as well. Examples:
 
 ```php
 public function foo(string $firstParam, string $secondParam): void;
@@ -117,23 +117,23 @@ Both ECS and PHPStan should be included in the CI process.
 
 ## General
 
-0. No `/.idea` and other local config files in `.gitignore`. Put them into global gitignore file, read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
-1. We are working on NIX systems and we don't like Windows nor are we solving it's existance goal and other problems.
-2. Code that is not documented doesn't exist. Writing a documentation of a bundle/plugin/project is part of the development process. Remember that in the end someone else is going to use your code who might not know each part of it. This also applies to writing Github repository description, basic composer package information, etc. 
+0. No `/.idea` and other local config files in `.gitignore`. Put them into a global gitignore file, read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
+1. We are working on NIX systems and we don't like Windows nor are we solving its existence goal and other problems.
+2. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the development process. Remember that in the end, someone else is going to use your code who might not know each part of it. This also applies to writing Github repository descriptions, basic composer package information, etc. 
 
 
 ## Symfony / Sylius / Frameworks
 
 0. Use YAML (`*.yaml`) for defining routings and configs;
 1. Use XML (`*.xml`) for defining services, doctrine, and validation definitions;
-2. For services definitions in a single bundle use `form.xml`, `event_listener.xml`, etc. Don't put everything in the `services.xml` file, do it in public projects with only a few services. If you have more than one type of service inside your app, create a separate config file under `services/` directory.
+2. For services definitions in a single bundle use `form.xml`, `event_listener.xml`, etc. Don't put everything in the `services.xml` file, do it in public projects with only a few services. If you have more than one type of service inside your app, create a separate config file under the `services/` directory.
 3. Repositories and Entities in public projects should not (and cannot) be defined as `final`. 
-4. Entity fields in public projects (vendors) should be `protected` instad of `private`.
-5. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly. Instead, inject resource factory into constructor and call `createNew()` on it. See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
+4. Entity fields in public projects (vendors) should be `protected` instead of `private`.
+5. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly. Instead, inject resource factory into the constructor and call `createNew()` on it. See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
 6. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
 7. We follow command pattern implemented in [SyliusShopApiPlugin](https://github.com/Sylius/SyliusShopApiPlugin). This means we use the same bus libraries and similar `Command, CommandHandler, ViewRepository, ViewFactory, View` approach.
 8. Creating a CLI Command using Symfony Console Component should follow the following rules:
-    - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution the return can be `1` or any different *error code number*.
+    - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution, the return can be `1` or any different *error code number*.
 9. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
 10. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
 11. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
@@ -160,11 +160,11 @@ final class ProductSpec extends ObjectBehavior
 
 ## OOP / Architecture
 
-0. Make your code as simple as it's possible (follow single responsibilty principle and KISS principle).
-1. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow single responsibilty principle).
+0. Make your code as simple as it's possible (follow single responsibility principle and KISS principle).
+1. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow a single responsibility principle).
 2. Use `final` any time it is possible (in order to avoid infinite inheritance chain, in order to customize some parts use Decorator and Dependency Injection patterns).
-	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be a final classes because of reflection issues.
-4. Be more careful when you think Singleton is something you need in project. If it is you should go and rething the code.
+	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be final classes because of reflection issues.
+4. Be more careful when you think Singleton is something you need in the project. If it is you should go and rethink the code.
 5. Be careful with `static` statement, probably you will never need to use it.
 6. Use ADR pattern for controllers. For instance, your controller should not extend any class and contain just an `__invoke` method. It should also be suffixed with `Action` keyword.
 
@@ -216,9 +216,8 @@ final class SayHelloToTheWorldAction
 /*
  * This file has been created by developers from BitBag.
  * Feel free to contact us once you face any issues or want to start
- * another great project.
- * You can find more information about us on https://bitbag.shop and write us
- * an email on mikolaj.krol@bitbag.pl.
+ * You can find more information about us on https://bitbag.io and write us
+ * an email on hello@bitbag.io.
  */
 
  declare(strict_types=1);
@@ -276,5 +275,7 @@ final class SayHelloToTheWorldAction
 
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
-**There is nothing called stupid question, but please ask it in a smart way :).**
+**There is nothing called a stupid question, but please ask it in a smart way :).**
 **It's better to talk about a feature with the whole team for 30 minutes than lose 8 hours on implementing some dummy code that will destroy the current codebase order and deep the technical debt.**
+
+
