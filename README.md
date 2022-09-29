@@ -207,7 +207,7 @@ final class SayHelloToTheWorldAction
 ## Open Source
 
 0. Open source is made by forks if only more than one person is in charge of maintenance of specific package.
-1. We follow http://docs.sylius.org/en/latest/contributing/ contribution standards
+1. We follow https://docs.sylius.com/en/latest/book/contributing/ contribution standards
 2. Any `*.php` file created by the BitBag developer (in Open Source project) needs to have at least the following definition where the author is the user who created this file:
 
 ```php
