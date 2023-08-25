@@ -31,9 +31,7 @@ It is extended based on the experience of the whole BitBag team for everybody's 
 ```php
 interface Foo
 {
-    /**
-     * @return Collection|ItemInterface[]
-     */
+    /** @return Collection|ItemInterface[] */
     public function getItems(): Collection;
 }
 ```
@@ -231,9 +229,7 @@ final class SayHelloToTheWorldAction
 }
 ```
 
-
 ## Workflow and Git
-
 
 -1. Not confident with Git yet? Visit [the simple guide](http://rogerdudler.github.io/git-guide/)!
 0. If you use Git in IDE - make sure it follows all standards. We don't care what GUI/CLI you use as long as you know what happens under the hood.
