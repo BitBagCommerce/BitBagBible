@@ -124,7 +124,7 @@ public function fooBarIsALongMethodName(
 0. No `/.idea` and other local config files in `.gitignore`. Put them into a global gitignore file,
     read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
 
-1. We are working on NIX systems. We don't like Windows nor are we solving its existence goal and other problems related
+1. We are working on *NIX systems. We don't like Windows nor are we solving its existence goal and other problems related
    to code and application.
 
 2. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the
