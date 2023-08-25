@@ -48,7 +48,7 @@ final class Foo
     
     private string $bar;
     
-    /** return int|null */
+    /** @return int|null */
     public function getFoo()
     {
         return $this->foo;
