@@ -23,7 +23,7 @@ It is extended based on the experience of the whole BitBag team for everybody's 
    - Using a new constructor syntax known from PHP 8.0
 3. Always use a trailing comma in arrays and method parameters (if PHP version allows to do that).
 4. Use Yoda-Style comparisons `null === $var->getResult($anotherVar)` instead of `$var->getResult($anotherVar) === null`
-5. Use class constants for static (hardcoded) values.
+5. Use class constants / enums for static (hardcoded) values.
 6. Don't use annotations or attributes for framework configuration. Don't mess up the definition/configuration with implementation.
 7. Don't use PHPDoc for things, that can be determined from the code level. Use it only when it is REALLY valuable and in interfaces
    that return array of objects or collections, like:
@@ -149,15 +149,16 @@ public function fooBarIsALongMethodName(
    Instead, inject resource factory into the constructor and call `createNew()` on it.
    See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
-8. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
-9. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
-10. Creating a CLI Command using Symfony Console Component should follow the following rules:
+8. Don't include the entire service container into your service. Instead of that use Symfony Dependency Injection.
+9. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
+10. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
+11. Creating a CLI Command using Symfony Console Component should follow the following rules:
     - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution, the return can be `1` or any different *error code number*.
-11. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
-12. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
-13. Do not define services as public, if it's not necessary.
-14. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
-15. Don't use Sylius theme if you have one template in your project.
+12. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+13. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
+14. Do not define services as public, if it's not necessary.
+15. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
+16. Don't use Sylius theme if you have one template in your project.
 
 ## Testing
 
