@@ -149,7 +149,7 @@ public function fooBarIsALongMethodName(
    Instead, inject resource factory into the constructor and call `createNew()` on it.
    See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
-8. Don't include the entire service container into your service. Instead of that use Symfony Dependency Injection.
+8. Don't include the entire service container into your service, if you don't have to. Instead of that use Symfony Dependency Injection.
 9. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
 10. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
 11. Creating a CLI Command using Symfony Console Component should follow the following rules:
