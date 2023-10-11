@@ -1,6 +1,6 @@
 # Coding bible
 
-*This project follows PSR-4 coding standards and those recommended by Sylius and Symfony projects in this order.
+*This project follows [PSR coding standards](https://www.php-fig.org/psr/) and those recommended by Sylius and Symfony projects in this order.
 It is extended based on the experience of the whole BitBag team for everybody's sake.*
 
 - [Code Style](#code-style)
@@ -15,16 +15,16 @@ It is extended based on the experience of the whole BitBag team for everybody's 
 
 ## Code Style
 
-0. Starting a new project, always use the newest stable PHP version.
-1. Always follow PSR-4 recommendations.
+0. Starting a new project, always use the newest stable PHP, Symfony, Sylius, Shopware version.
+1. Always follow [PSR-12](https://www.php-fig.org/psr/psr-12/) recommendations.
 2. Always prefer newer syntax rules. In example:
    - Using `$elements = [1, 2, 3];` instead of `$elements = array(1, 2, 3);`
    - Using property / function parameter types, wherever possible
    - Using a new constructor syntax known from PHP 8.0
 3. Always use a trailing comma in arrays and method parameters (if PHP version allows to do that).
-4. Use Yoda-Style comparisons `null === $var->getResult($anotherVar)` instead of `$var->getResult($anotherVar) === null`
+4. Use Yoda-Style comparisons `null === $var->getResult($anotherVar)` instead of `$var->getResult($anotherVar) === null`.
 5. Use class constants / enums for static (hardcoded) values.
-6. Don't use annotations or attributes for framework configuration. Don't mess up the definition/configuration with implementation.
+6. Don't use annotations for framework configuration. If you consider using attributes (i.e. because of framework requirements), please do this in project-scope.
 7. Don't use PHPDoc for things, that can be determined from the code level. Use it only when it is REALLY valuable and in interfaces
    that return array of objects or collections, like:
 
@@ -36,44 +36,7 @@ interface Foo
 }
 ```
 
-8. Use **inline** PHPDoc only for fields inside the class and method return type (if not specified by the code):
-
-```php
-final class Foo
-{
-    /** @var int */
-    private $foo;
-    
-    private string $bar;
-    
-    /** @return int|null */
-    public function getFoo()
-    {
-        return $this->foo;
-    }
-    
-    public function getBar(): ?string
-    {
-        return $this->bar;
-    }
-}
-```
-
-9. Keep a blank line above the `@return` method definition in case it has more than `@return` annotation, for instance
-
-```php
-interface Foo
-{
-    /**
-     * Some valid and important comment
-     *
-     * @return Collection|ItemInterface[]
-     */
-    public function getItems(string $key): Collection;
-}
-```
-
-10. Always use strict types declaration in each class header, like:
+8. Always use strict types declaration in each class header, like:
 
 ```php
 <?php
@@ -87,8 +50,8 @@ final class Foo
 }
 ```
 
-11. A method must not have more than two parameters inline. Otherwise, split them with `\n`. In an edge-case where two
-parameters are too long to fit your (and potentially your colleagues) screen, split them as well.
+9. A method must not have more than one parameter inline. Otherwise, split them with `\n`. In an edge-case where two
+parameters are too long to fit PSR line limit, split them as well. # TODO New PHP constructor topic to be discussed
 
 Examples:
 
@@ -98,24 +61,24 @@ public function foo(string $firstParam, string $secondParam): void;
 public function bar(
     FirstParamInterface $firstParam, 
     SecondParamInterface $secondParam,
-    ThirdParamInterface $thirdParam
+    ThirdParamInterface $thirdParam,
 ): void;
 
 public function fooBarIsALongMethodName(
     WithEvenALongerParameter $firstParam,
-    AndASecondParameterThatIsNotShorter $secondParameter
+    AndASecondParameterThatIsNotShorter $secondParameter,
 ): void;
 ```
 
-12. Once you use PHPStorm (and yes, you do if you work at BitBag), you can open your IDE preferences (`PHPStorm -> Preferences`)
+10. Once you use PHPStorm (and yes, you do if you work at BitBag), you can open your IDE preferences (`PHPStorm -> Preferences`)
     and search for `File and Code Templates`. PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment are those
     templates that should at least be customized.
 
-13. Always use [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard) for code cleanup.
+11. Always use [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard) for code cleanup.
     Also use PHPStan on level 8 wherever it's possible. It's included in [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard).
     Both ECS and PHPStan should be included in the CI process.
 
-14. For any point not included in the current section please follow the https://mnapoli.fr/approaching-coding-style-rationally/ tips.
+12. For any point not included in the current section please follow the https://mnapoli.fr/approaching-coding-style-rationally/ tips.
 
 ## General
 
