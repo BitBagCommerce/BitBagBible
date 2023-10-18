@@ -5,6 +5,7 @@ It is extended based on the experience of the whole BitBag team for everybody's 
 
 - [Code Style](#code-style)
 - [General](#general)
+- [Static analysis tools](#static-analysis-tools)
 - [Symfony / Sylius / Frameworks](#symfony--sylius--frameworks)
 - [Testing](#testing)
 - [OOP / Architecture](#oop--architecture)
@@ -51,12 +52,19 @@ final class Foo
 ```
 
 9. A method must not have more than one parameter inline. Otherwise, split them with `\n`. In an edge-case where two
-parameters are too long to fit PSR line limit, split them as well. # TODO New PHP constructor topic to be discussed
+parameters are too long to fit PSR line limit, split them as well.
 
 Examples:
 
 ```php
-public function foo(string $firstParam, string $secondParam): void;
+
+// Good patterns:
+
+public function bar(FirstParamInterface $firstParam): void;
+
+public function bar(
+    FirstParamInterface $firstParam,
+): void;
 
 public function bar(
     FirstParamInterface $firstParam, 
@@ -74,21 +82,20 @@ public function fooBarIsALongMethodName(
     and search for `File and Code Templates`. PHP Class Doc Comment, PHP File Header, PHP Interface Doc Comment are those
     templates that should at least be customized.
 
-11. Always use [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard) for code cleanup.
-    Also use PHPStan on level 8 wherever it's possible. It's included in [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard).
-    Both ECS and PHPStan should be included in the CI process.
+12. For any point not included in the current section and the PSR rules please consider the https://mnapoli.fr/approaching-coding-style-rationally/ tips (as very valuable propositions).
 
-12. For any point not included in the current section please follow the https://mnapoli.fr/approaching-coding-style-rationally/ tips.
+13. If you consider any changes in your project, please discuss it with your team and if decided to do so, please do this in project-level.
 
 ## General
 
 0. No `/.idea` and other local config files in `.gitignore`. Put them into a global gitignore file,
     read more on https://help.github.com/articles/ignoring-files/#create-a-global-gitignore.
 
-1. We are working on *NIX systems. We don't like Windows nor are we solving its existence goal and other problems related
-   to code and application.
+1. All side-effect files (or directories) from project dependencies should be put into project `.gitignore` file.
 
-2. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the
+2. For project development we require *NIX system kernel (for working with Git, servers, maintaining Symfony application etc.). We require from you working on Windows (WSL only) / MacOS / Ubuntu.
+
+3. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the                     # TODO
    development process. Remember that in the end, someone else is going to use your code who might not know each part of it.
    This also applies to writing GitHub repository descriptions, basic composer package information, etc.
    
@@ -96,6 +103,12 @@ public function fooBarIsALongMethodName(
       - Package installation process
       - How to run the application (set of commands/steps needed to do it)
       - Information of needed tools, including their versions
+  
+## Static analysis tools
+
+1. Always use [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard) for code cleanup.
+    Also use PHPStan on level 8 wherever it's possible. It's included in [BitBag Coding Standard library](https://github.com/BitBagCommerce/coding-standard).
+    Both ECS and PHPStan should be included in the CI process.
 
 ## Symfony / Sylius / Frameworks
 
