@@ -95,14 +95,15 @@ public function fooBarIsALongMethodName(
 
 2. For project development we require *NIX system kernel (for working with Git, servers, maintaining Symfony application etc.). We require from you working on Windows (WSL only) / MacOS / Ubuntu.
 
-3. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the                     # TODO
+3. Code that is not documented doesn't exist. Writing documentation of a bundle/plugin/project is part of the
    development process. Remember that in the end, someone else is going to use your code who might not know each part of it.
    This also applies to writing GitHub repository descriptions, basic composer package information, etc.
    
    Specially write/update information of:
-      - Package installation process
-      - How to run the application (set of commands/steps needed to do it)
-      - Information of needed tools, including their versions
+      - Information of needed tools, including their versions.
+      - Package installation process. Specially please follow your instructions from the beginning to end, to be sure the installation process is completed.
+      - How to run the application / tests (set of commands/steps needed to do it).
+      - If you prepare new major version of a package, please write/update UPGRADE.md file to describe the breaking changes. Please note, not every code-breaking change needs a new major version of application.
   
 ## Static analysis tools
 
@@ -112,29 +113,30 @@ public function fooBarIsALongMethodName(
 
 ## Symfony / Sylius / Frameworks
 
-0. Use YAML (`*.yaml`) for defining routings and configs.
-1. Use XML (`*.xml`) for defining services, doctrine mappings, and validation definitions.
-2. For services definitions in a single bundle use `form.xml`, `event_listener.xml`, etc. Don't put everything.
-   in the `services.xml` file, do it in public projects with only a few services. If you have more than one type of service.
-   inside your app, create a separate config file under the `services/` directory.
-3. Any information regarding external system (like DSN, service path, credentials) have to been placed in `.env` file as placeholders.
-4. Please use `.env.local` file for all sensitive and environment-specific data.
-5. Repositories in public projects should not (and cannot) be defined as `final`. 
-6. Entity fields in public projects (vendors) should be `protected` instead of `private`.
-7. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly.
+0. We recommend using YAML (`*.yaml`) for defining routings and configs.
+1. We recommend using XML (`*.xml`) for defining services, doctrine mappings, and validation definitions.
+2. If you prefer doing 0. and 1. it another way, please do it consistent in entire project.
+3. For services definitions in a single bundle use `form.xml`, `event_listener.xml`, etc. Don't put everything
+   in the `services.xml` file, do it in public projects with only a few services. If you have more than one type of service
+   Inside your app, create a separate config file under the `services/` directory.
+4. Any information regarding external system (like DSN, service path) have to been placed in `.env` file as placeholders. If you consider putting there any credentials, please put only empty placeholders there.
+5. Please use `.env.local` (which is not commited to the repository) file for all sensitive and environment-specific data.
+6. Repositories in public projects should not (and cannot) be defined as `final`.             # TODO
+7. Entity fields in public projects (vendors) should be `protected` instead of `private`.
+8. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly.
    Instead, inject resource factory into the constructor and call `createNew()` on it.
    See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
-8. Don't include the entire service container into your service, if you don't have to. Instead of that use Symfony Dependency Injection.
-9. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
-10. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
-11. Creating a CLI Command using Symfony Console Component should follow the following rules:
+9. Don't include the entire service container into your service, if you don't have to. Instead of that use Symfony Dependency Injection.
+10. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
+11. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
+12. Creating a CLI Command using Symfony Console Component should follow the following rules:
     - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution, the return can be `1` or any different *error code number*.
-12. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
-13. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
-14. Do not define services as public, if it's not necessary.
-15. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
-16. Don't use Sylius theme if you have one template in your project.
+13. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+14. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
+15. Do not define services as public, if it's not necessary.
+16. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
+17. Don't use Sylius theme if you have one template in your project.
 
 ## Testing
 
