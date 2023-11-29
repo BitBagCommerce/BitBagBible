@@ -1,4 +1,6 @@
-# Coding bible
+# BitBag Coding Bible
+
+![BitBag Bible](doc/image.png "BitBag Bible")
 
 *This project follows [PSR coding standards](https://www.php-fig.org/psr/) and those recommended by Sylius and Symfony projects in this order.
 It is extended based on the experience of the whole BitBag team for everybody's sake.*
