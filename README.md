@@ -123,22 +123,24 @@ public function fooBarIsALongMethodName(
    Inside your app, create a separate config file under the `services/` directory.
 4. Any information regarding external system (like DSN, service path) have to been placed in `.env` file as placeholders. If you consider putting there any credentials, please put only empty placeholders there.
 5. Please use `.env.local` (which is not commited to the repository) file for all sensitive and environment-specific data.
-6. Repositories in public projects should not (and cannot) be defined as `final`.             # TODO
-7. Entity fields in public projects (vendors) should be `protected` instead of `private`.
-8. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly.
+6. Use finals everywhere you can (specially in non-bundle projects).
+7. Repositories and entities in public projects should not (and cannot) be defined as `final`.
+8. Interface-driven development is not welcome, but if you consider extending your class or overriding your service, please use traits and interfaces.
+9. Entity fields in public projects (vendors) should be `protected` instead of `private`.
+10. Decorate resource factories with decoration pattern and do not call resource instance with `new` keyword directly.
    Instead, inject resource factory into the constructor and call `createNew()` on it.
    See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
-9. Don't include the entire service container into your service, if you don't have to. Instead of that use Symfony Dependency Injection.
-10. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
-11. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
-12. Creating a CLI Command using Symfony Console Component should follow the following rules:
+11. Don't include the entire service container into your service by default, if you don't have to. Instead of that use Symfony Dependency Injection.
+12. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).  # Todo
+13. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
+14. Creating a CLI Command using Symfony Console Component should follow the following rules:
     - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution, the return can be `1` or any different *error code number*.
-13. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
-14. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
-15. Do not define services as public, if it's not necessary.
-16. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
-17. Don't use Sylius theme if you have one template in your project.
+15. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+16. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
+17. Do not define services as public, if it's not necessary.
+18. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
+19. Don't use Sylius theme if you have one template in your project.
 
 ## Testing
 
