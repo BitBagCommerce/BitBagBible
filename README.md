@@ -132,17 +132,13 @@ public function fooBarIsALongMethodName(
    See `Sylius\Component\Product\Factory\ProductFactory`, `sylius.custom_factory.product` service definition
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
 11. Don't include the entire service container into your service by default, if you don't have to. Instead of that use Symfony Dependency Injection.
-12. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).  # Todo
-13. We follow command pattern. This means we use `Command` / `CommandHandler` / message bus approach. Consider using [Symfony Messenger](https://symfony.com/doc/current/messenger.html) for that. 
-14. Creating a CLI Command using Symfony Console Component should follow the following rules:
-    - `execute` method should have `int` as a return type. For the **successful** run, the command should return `0`. For any errors during execution, the return can be `1` or any different *error code number*.
-15. In Sylius plugins, use traits for customizing models and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
-16. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container.
-17. Do not define services as public, if it's not necessary.
-18. If some of the service definition is tagged, don't use FQCN (Fully Qualified Class Name) as the service id.
-19. Don't use Sylius theme if you have one template in your project.
+12. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
+13. In Sylius plugins, use traits for customizing models and/or repositories and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+14. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container. # To be discussed
+15. Do not define services as public, if it's not necessary.
+16. Don't use Sylius theme if you have one template in your project.
 
-## Testing
+## Testing # todo
 
 0. Before starting implementing new functional code, make sure all your core logic is covered with PHPSpec.
 1. We use PHPSpecs only for code related to bussiness logic, so please do not write them for controllers, repositories, fixture generators etc. 
