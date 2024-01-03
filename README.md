@@ -138,33 +138,23 @@ public function fooBarIsALongMethodName(
 15. Do not define services as public, if it's not necessary.
 16. Don't use Sylius theme if you have one template in your project.
 
-## Testing # todo
+## Testing
 
-0. Before starting implementing new functional code, make sure all your core logic is covered with PHPSpec.
-1. We use PHPSpecs only for code related to bussiness logic, so please do not write them for controllers, repositories, fixture generators etc. 
-2. PHPSpecs are always final classes with `function`s without `public` visibility and `: void` return type:
+0. Always write tests for your application.
+1. When project starts, please choose a testing toolset and continue using it during project for the consistency.
+2. Before starting implementing new functional code, make sure all your core logic is covered with unit tests (PHPUnit / PHPSpec).
+3. We use unit tests only for code related to bussiness logic, so please do not write them for controllers, repositories, fixture generators, getters, setters etc. 
+4. For integration tests we use PHPUnit with [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
+   The integration tests means testing code with integration to external services, like database, redis, file system. So please write
+   them for repositories, cache drivers, file uploaders etc.
+5. For functional API tests we use PHPUnit with [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
+   The functional API tests means running application API endpoints, comparing their responses with additional database checks if needed.
+6. Please write your fixtures using [Nelmio Alice](https://github.com/nelmio/alice) package, which is included in [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
+7. For functional and end to end GUI tests please use Behat.
+8. After you implement any new functional feature, write Behat scenario (Gherkin, `*.feature` file).
+9. When you're fixing a bug, it's recommended to write behat scenario first (TDD) to prove the fix works correctly.
 
-```php
-final class ProductSpec extends ObjectBehavior
-{
-    function it_follows_bitbag_coding_standards(): void
-    {
-        Assert::true($this->followsStandards());
-    }
-}
-```
-
-3. For integration tests we use PHPUnit with [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
-    The integration tests means testing code with integration to external services, like database, redis, file system. So please write
-    them for repositories, cache drivers, file uploaders etc.
-4. For functional API tests we use PHPUnit with [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
-   The functional API tests means running application API endpoints, comparing their responses with additional database checks.
-5. Please write your fixtures using [Nelmio Alice](https://github.com/nelmio/alice) package, which is included in [lchrusciel/api-test-case](https://github.com/lchrusciel/ApiTestCase) library.
-6. Before you implement any new functional feature, write Behat scenario first (Gherkin, `*.feature` file).
-7. After writing the scenario, write a proper scenario execution (Contexts, Pages).
-8. Use Behat Contexts that are divided into `Hooks` - generic app Background, `Setup` specific resource background, `Ui` - specific interaction.
-
-## OOP / Architecture
+## OOP / Architecture #TODO
 
 0. Make your code as simple as it's possible (follow single responsibility principle and KISS principle).
 1. Please use the Demeter Law to not to code trains as below:
