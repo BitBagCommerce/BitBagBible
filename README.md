@@ -154,21 +154,19 @@ public function fooBarIsALongMethodName(
 8. After you implement any new functional feature, write Behat scenario (Gherkin, `*.feature` file).
 9. When you're fixing a bug, it's recommended to write behat scenario first (TDD) to prove the fix works correctly.
 
-## OOP / Architecture #TODO
+## OOP / Architecture
 
-0. Make your code as simple as it's possible (follow single responsibility principle and KISS principle).
+0. Make your code as simple as it's possible (follow S.O.L.I.D. and KISS principles).
 1. Please use the Demeter Law to not to code trains as below:
 
 ```php
 $product->getVariants()->first()->getNextThing()->getNextThing()->ohNoImInTheTrain();
 ```
 
-2. Use interfaces for any core logic class implementation, especially Models and Services (so that you follow a single responsibility principle).
+2. Use interfaces for any core logic class implementation, especially when you create a plugin or bundle.
 3. Use `final` any time it is possible (in order to avoid infinite inheritance chain, in order to customize some parts use Decorator and Dependency Injection patterns).
 	- The only exception to this rule is only for a framework/library specific requirements. I.e Doctrine Entities cannot be final classes because of proxy classes existence.
-4. Be more careful when you think Singleton is something you need in the project. If it is you should go and rethink the code.
-5. Be careful with `static` statement, probably you will never need to use it.
-6. Use ADR pattern for controllers. For instance, your controller should not extend any class and contain just an `__invoke` method. It should also be suffixed with `Action` keyword.
+4. Use ADR pattern for controllers. For instance, your controller should not extend any class and contain just an `__invoke` method. It should also be suffixed with `Action` keyword.
 
 ```php
 <?php
@@ -200,7 +198,8 @@ final class SayHelloToTheWorldAction
 
 ## Workflow and Git
 
--1. Not confident with Git yet? Visit [the simple guide](http://rogerdudler.github.io/git-guide/)!
+-1. Not confident with Git yet? Visit [the simple guide](https://rogerdudler.github.io/git-guide/)!
+
 0. If you use Git in IDE - make sure it follows all standards. We don't care what GUI/CLI you use as long as you know what happens under the hood.
 1. Commit messages should be written (if only it's possible) with the following convention:
    `TASK-123 - Max 64 characters description in english written in Present Simple.`. If you don't work with any ticket system,
@@ -213,7 +212,7 @@ final class SayHelloToTheWorldAction
    Any kind of change of the flow has to be discussed to the team leader. 
 
 
-## Open Source
+## Open Source #Todo
 
 0. Open source is made by forks if only more than one person is in charge of maintenance of specific package.
 1. We follow http://docs.sylius.org/en/latest/contributing/ contribution standards.
