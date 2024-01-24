@@ -133,10 +133,9 @@ public function fooBarIsALongMethodName(
    and [Symfony Service Decoration](https://symfony.com/doc/current/service_container/service_decoration.html). The `priority` flag we are starting with equals 1 and is increased by one for each other decoration.
 11. Don't include the entire service container into your service by default, if you don't have to. Instead of that use Symfony Dependency Injection.
 12. For customizing forms use [Symfony Form Extension](https://symfony.com/doc/current/form/create_form_type_extension.html).
-13. In Sylius plugins, use traits for customizing models and/or repositories and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
-14. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container. # To be discussed
-15. Do not define services as public, if it's not necessary.
-16. Don't use Sylius theme if you have one template in your project.
+13. We don't use either autowire nor autoconfigure Symfony options as it is a very "magic" way of defining services. We always prefer to manually define services and inject proper arguments into them to have better control of our Container. # To be discussed
+14. Do not define services as public, if it's not necessary.
+15. Don't use Sylius theme if you have one template in your project.
 
 ## Testing
 
@@ -212,10 +211,10 @@ final class SayHelloToTheWorldAction
    Any kind of change of the flow has to be discussed to the team leader. 
 
 
-## Open Source #Todo
+## Open Source
 
-0. Open source is made by forks if only more than one person is in charge of maintenance of specific package.
-1. We follow http://docs.sylius.org/en/latest/contributing/ contribution standards.
+0. If your're external contributor, you should use forks and pull-requests for the contribution.
+1. A good example of open source contribution rules you can find here: https://docs.sylius.com/en/latest/book/contributing/index.html.
 2. Any `*.php` file created by the BitBag developer (in Open Source project) needs to have at least the following definition where the author is the user who created this file:
 
 ```php
@@ -236,45 +235,24 @@ final class SayHelloToTheWorldAction
  
  final class Bar implements BarInterface
  {
-     public const SOME_CONST = 'foo';
-     public const SOME_OTHER_CONST = 'bar';
-     
-     /** @var string */
-     private $someProperty;
-    
-     public function inheritedMethod(): string
-     {
-         //some body
-     }
-     
-     private function someFunction(SomeServiceInterface $someService): ?NullOrInterfacedObject
-     {
-         $items = $someService->getCollection();
-         
-         /** @var WeUseThisBlockDefinitionIfNecessaryOfCourseWithInterface $someOtherProperty */
-         $someOtherProperty = $someService->getSomething();
-         // Use break line between any operation in your code. Imagine the code as block diagram, where every new line is an arrow between operations.
-         foreach ($items as $item) {
-             $item->doSomething();
-             
-             if (false === $item->getProperty()) { // Always use strict comparison with expected result on the left
-                 return;
-             }
-             
-             continue;
-         }
-         
-         $someService->someOutputAction();
-         
-         $this->someProperty->someOtherOutputAction();
-         
-         return $someOtherProperty;
-     }
+     // ...
  }
 ```
+
+
+
+## Developing Sylius plugins
+
+0. Use traits for customizing models and/or repositories and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
+1. Entity fields in public projects (vendors) have to be `protected` instead of `private` to make them possible of being extended in final app.
+2. Please use interfaces for every service you can. Also please prefer using interfaces in service constructors for better plugin extendability. It will make possible service overwriting and decoration.
+3. Please follow [Symfony configuration structure rules](https://symfony.com/doc/current/bundles/best_practices.html). For projects with previous approach it's always welcome to do the refactor.
+4. When using Sylius Resource based classes (controllers, entities, interfaces, factories, repositories etc.), instead of putting the hardcoded FCQN in configuration (i.e. grids) please use the auto-generated parameters.
+5. Prefer using template events than overridding Sylius / Symfony templates in plugin.
+6. When supporting multiple Sylius / Symfony versions you probably would to load different configurations for them. To do so, you can follow [our CMS Kernel logic](https://github.com/BitBagCommerce/SyliusCmsPlugin/blob/master/tests/Application/Kernel.php).
+7. We use GitHub Actions for CI. When developing new plugin, please prepare the build file. As an example you can follow our [OpenMarketplace build.yml](https://github.com/BitBagCommerce/OpenMarketplace/blob/master/.github/workflows/build.yml) file.
+8. README.md file is a must have. It has to contain at least description of plugin features and installation process. And please remember to test the installation process (following all the README commands) before publishing any changes.
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**
 **There is nothing called a stupid question, but please ask it in a smart way :).**
 **It's better to talk about a feature with the whole team for 30 minutes than lose 8 hours on implementing some dummy code that will destroy the current codebase order and deep the technical debt.**
-
-
