@@ -170,7 +170,7 @@
             id: yarn-cache
             run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
       ```
-    </details>
+   </details>
 
 15. Cache Yarn
    <details>
@@ -186,7 +186,7 @@
               restore-keys: |
                 ${{ runner.os }}-node-${{ matrix.node }}-yarn-
       ```
-    </details>  
+   </details>  
 
 16. Install JS dependencies
    <details>
