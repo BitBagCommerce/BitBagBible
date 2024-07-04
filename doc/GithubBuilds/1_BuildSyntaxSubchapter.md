@@ -12,4 +12,4 @@ In this file we should have steps like: unit test, behat tests etc.
 This file is similar in structure to build.yml, for example the database connection isn't specified.
 coding_standard.yml file should check ecs, phpStan etc.
 
-### [Previous chapter](./GithubBuilds.md) / [Main page](../GithubBuilds.md) / [Next chapter](./2_EventsSubchapter.md)
+### [Main page](../GithubBuilds.md) / [Next chapter](./2_EventsSubchapter.md)

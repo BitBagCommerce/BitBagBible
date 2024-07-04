@@ -246,7 +246,7 @@
             name: Load fixtures in test application
             run: (cd tests/Application && bin/console sylius:fixtures:load -n)
       ```
-    </details>  
+   </details>  
 
 21. Validate composer.json
    <details>
@@ -410,6 +410,7 @@
              run: composer require "sylius/sylius:${{ matrix.sylius }}" --no-update --no-scripts --no-interaction
       ```
    </details>
+
 6. Install PHP dependencies
    <details>
       <summary>Click for code</summary>
