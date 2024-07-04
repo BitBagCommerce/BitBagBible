@@ -254,4 +254,4 @@
 ```
    </details>
 
-### [Previous chapter](/GithubBuilds/4_StepContextForBuildsSubchapter.md) / [Main page](/GithubBuilds/GithubBuilds.md) )
+### [Previous chapter](doc/GithubBuilds/4_StepContextForBuildsSubchapter.md) / [Main page](doc/GithubBuilds.md) )
