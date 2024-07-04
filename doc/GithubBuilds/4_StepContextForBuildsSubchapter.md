@@ -513,4 +513,4 @@
       ```
     </details>
 
-### [Previous chapter](doc/GithubBuilds/3_JobsAndStrategySubchapter.md) / [Main page](doc/GithubBuilds.md) / [Next chapter](doc/GithubBuilds/5_ExampleBuildsSubchapter.md)
+### [Previous chapter](./doc/GithubBuilds/3_JobsAndStrategySubchapter.md) / [Main page](./doc/GithubBuilds.md) / [Next chapter](./doc/GithubBuilds/5_ExampleBuildsSubchapter.md)
