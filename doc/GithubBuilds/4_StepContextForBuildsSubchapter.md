@@ -477,4 +477,4 @@
 </details>
 
 
-### [Previous chapter](./3_JobsAndStrategySubchapter.md) / [Main page](../GithubBuilds.md) / [Next chapter](./5_ExampleBuildsSubchapter.md)
+### [Previous chapter](./3_JobsAndStrategySubchapter.md) / [Main page](../../README.md) / [Next chapter](./5_ExampleBuildsSubchapter.md)

@@ -18,4 +18,4 @@
             cron: "0 1 * * 6"
         workflow_dispatch: ~
    ```
-### [Previous chapter](./1_BuildSyntaxSubchapter.md) / [Main page](../GithubBuilds.md) / [Next chapter](./3_JobsAndStrategySubchapter.md)
+### [Previous chapter](./1_BuildSyntaxSubchapter.md) / [Main page](../../README.md) / [Next chapter](./3_JobsAndStrategySubchapter.md)
