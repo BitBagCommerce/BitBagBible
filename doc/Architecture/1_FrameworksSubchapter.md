@@ -23,4 +23,4 @@
 16. Don't use Sylius theme if you have one template in your project.
 
 
-### [Main page](../../README.md) / [Next chapter](./2_ToolsSubchapter.md)
+### [Previous chapter](../Architecture.md) / [Main page](../../README.md) / [Next chapter](./2_ToolsSubchapter.md)

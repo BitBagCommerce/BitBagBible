@@ -70,4 +70,4 @@
 
 13. If you consider any changes in your project, please discuss it with your team and if decided to do so, please do this in project-level.
 
-### [Main page](../../README.md) / [Next chapter](./2_TestingSubchapter.md)
+### [Previous chapter](../DevelopingPlugins.md) / [Main page](../../README.md) / [Next chapter](./2_TestingSubchapter.md)
