@@ -218,7 +218,7 @@
              name: Prepare test application database
              run: |
                (cd tests/Application && bin/console doctrine:database:create -vvv)
-               (cd tests/Application && bin/console doctrine:migrations:migrate -n -vvv -q)
+               (cd tests/Application && bin/console doctrine:schema:create -vvv)
        ```
        </details>  
    
