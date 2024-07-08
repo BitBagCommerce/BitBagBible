@@ -2,6 +2,10 @@
 <details>
    <summary>Click to see steps</summary>
 
+```yaml
+- uses: actions/checkout@v3
+```
+
    1. Setup PHP
       <details>
          <summary>Click for code</summary>
@@ -349,6 +353,10 @@
 <details>
    <summary>Click to see steps</summary>
 
+```yaml
+    - uses: actions/checkout@v3
+```
+
 1. Setup PHP
    <details>
       <summary>Click for code</summary>
@@ -381,7 +389,7 @@
 
    ```yaml
    - name: Cache Composer
-     uses: actions/cache@v2
+     uses: actions/cache@v4
      with:
        path: ${{ steps.composer-cache.outputs.dir }}
        key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
@@ -422,6 +430,8 @@
    ```yaml
    - name: Install PHP dependencies
      run: composer install --no-interaction
+     env:
+       SYMFONY_REQUIRE: ${{ matrix.symfony }}
    ```
    </details>
 

@@ -181,7 +181,7 @@
       tests:
         runs-on: ubuntu-latest
 
-        name: "Sylius ${{ matrix.sylius }}, PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}"
+        name: "Sylius ${{ matrix.sylius }}, PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}"
 
         strategy:
           fail-fast: false
@@ -192,55 +192,53 @@
             node: ["18.x", "20.x"]
 
         steps:
-          -
-            uses: actions/checkout@v2
-          -
-            name: Setup PHP
+          - uses: actions/checkout@v3
+            
+          - name: Setup PHP
             uses: shivammathur/setup-php@v2
             with:
               php-version: "${{ matrix.php }}"
               extensions: intl
               tools: symfony
               coverage: none
-          -
-            name: Get Composer cache directory
+          - name: Get Composer cache directory
             id: composer-cache
-            run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+            run: echo echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
-          -
-            name: Cache Composer
-            uses: actions/cache@v2
+          - name: Cache Composer
+            uses: actions/cache@v4
             with:
               path: ${{ steps.composer-cache.outputs.dir }}
               key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
               restore-keys: |
                 ${{ runner.os }}-php-${{ matrix.php }}-composer-
-          -
-            name: Restrict Symfony version
+                
+          - name: Restrict Symfony version
             if: matrix.symfony != ''
             run: |
               composer global config --no-plugins allow-plugins.symfony/flex true
               composer global require --no-progress --no-scripts --no-plugins "symfony/flex:^1.10"
               composer config extra.symfony.require "${{ matrix.symfony }}"
-          -
-            name: Restrict Sylius version
+              
+          - name: Restrict Sylius version
             if: matrix.sylius != ''
             run: composer require "sylius/sylius:${{ matrix.sylius }}" --no-update --no-scripts --no-interaction
 
-          -
-            name: Install PHP dependencies
+          - name: Install PHP dependencies
             run: composer install --no-interaction
-
-          -
-            name: Run PHPStan
+            env:
+              SYMFONY_REQUIRE: ${{ matrix.symfony }}
+              
+          - name: Run PHPStan src dir
             run: vendor/bin/phpstan analyse -c phpstan.neon -l 8 src/
+          
+          - name: Run PHPStan spec dir
+            run: vendor/bin/phpstan analyse -c phpstan.neon -l 6 spec/
 
-          -
-            name: Run ECS
-            run: vendor/bin/ecs check src/
+          - name: Run ECS
+            run: vendor/bin/ecs
 
-          -
-            name: Failed build Slack notification
+          - name: Failed build Slack notification
             uses: rtCamp/action-slack-notify@v2
             if: ${{ failure() && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
             env:
