@@ -4,14 +4,13 @@
 
 ```YML
 name: Build
-
 on:
   push:
     branches-ignore:
       - 'dependabot/**'
   pull_request: ~
   release:
-    types: [created]
+    types: [ created ]
   schedule:
     - cron: "0 1 * * 6"
   workflow_dispatch: ~
@@ -25,11 +24,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ["8.1", "8.2", "8.3"]
-        symfony: ["^5.4", "^6.4"]
-        sylius: ["^1.12", "^1.13"]
-        node: ["18.x", "20.x"]
-        mysql: ["8.0"]
+        php: [ "8.1", "8.2", "8.3" ]
+        symfony: [ "^5.4", "^6.4" ]
+        sylius: [ "^1.12", "^1.13" ]
+        node: [ "18.x", "20.x" ]
+        mysql: [ "8.0" ]
 
     env:
       APP_ENV: test
@@ -80,7 +79,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json', '**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php }}-composer-
 
@@ -104,7 +103,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/package.json', '**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/package.json **/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
@@ -178,7 +177,7 @@ on:
       - 'dependabot/**'
   pull_request: ~
   release:
-    types: [created]
+    types: [ created ]
   workflow_dispatch: ~
 
 jobs:
@@ -190,10 +189,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ["8.1", "8.2", "8.3"]
-        symfony: ["^5.4", "^6.4"]
-        sylius: ["^1.12", "^1.13"]
-        node: ["18.x", "20.x"]
+        php: [ "8.1", "8.2", "8.3" ]
+        symfony: [ "^5.4", "^6.4" ]
+        sylius: [ "^1.12", "^1.13" ]
+        node: [ "18.x", "20.x" ]
 
     steps:
       - uses: actions/checkout@v3
