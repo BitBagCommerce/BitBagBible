@@ -233,11 +233,8 @@ jobs:
         env:
           SYMFONY_REQUIRE: ${{ matrix.symfony }}
 
-      - name: Run PHPStan src dir
+      - name: Run PHPStan
         run: vendor/bin/phpstan analyse -c phpstan.neon -l 8 src/
-
-      - name: Run PHPStan spec dir
-        run: vendor/bin/phpstan analyse -c phpstan.neon -l 6 spec/
 
       - name: Run ECS
         run: vendor/bin/ecs

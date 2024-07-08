@@ -435,7 +435,7 @@
    ```
    </details>
 
-7. Run PHPStan in src directory
+7. Run PHPStan
    <details>
       <summary>Click for code</summary>
 
@@ -445,17 +445,7 @@
    ```
    </details>
 
-8. Run PHPStan in spec directory
-   <details>
-      <summary>Click for code</summary>
-
-   ```yaml
-   - name: Run PHPStan spec dir
-     run: vendor/bin/phpstan analyse -c phpstan.neon -l 6 spec/
-   ```
-   </details>
-
-9. Run ECS
+8. Run ECS
    <details>
       <summary>Click for code</summary>
 
@@ -464,8 +454,7 @@
      run: vendor/bin/ecs
    ```
    </details>
-
-10. Failed build Slack notification
+9. Failed build Slack notification
     <details>
       <summary>Click for code</summary>
 
