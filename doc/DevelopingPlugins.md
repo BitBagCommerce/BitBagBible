@@ -7,7 +7,7 @@
 5. When using Sylius Resource based classes (controllers, entities, interfaces, factories, repositories etc.), instead of putting the hardcoded FCQN in configuration (i.e. grids) please use the auto-generated parameters.
 6. Prefer using template events than overridding Sylius / Symfony templates in plugin.
 7. When supporting multiple Sylius / Symfony versions you probably would to load different configurations for them. To do so, you can follow [our CMS Kernel logic](https://github.com/BitBagCommerce/SyliusCmsPlugin/blob/master/tests/Application/Kernel.php).
-8. We use GitHub Actions for CI. When developing new plugin, please prepare the build file. As an example you can follow our [OpenMarketplace build.yml](https://github.com/BitBagCommerce/OpenMarketplace/blob/master/.github/workflows/build.yml) file. You can see the full instructions on how to create a build file [here](./doc/GithubBuilds.md)
+8. We use GitHub Actions for CI. When developing new plugin. You can see the full instructions on how to create a build file [here](./doc/GithubBuilds.md)
 9. README.md file is a must have. It has to contain at least description of plugin features and installation process. And please remember to test the installation process (following all the README commands) before publishing any changes.
 
 **Be smart and keep in mind that once you do something stupid, I will find you and I will force you to work with Laravel or Magento.**

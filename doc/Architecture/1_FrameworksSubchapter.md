@@ -2,7 +2,7 @@
 
 1. We recommend using YAML (`*.yaml`) for defining routings and configs.
 2. We recommend using XML (`*.xml`) for defining services, doctrine mappings, and validation definitions.
-3. If you prefer doing 0. and 1. it another way, please do it consistent in entire project.
+3. If you prefer handling points 1 and 2 differently, please do it consistent in entire project.
 4. For services definitions in a single bundle use `form.xml`, `event_listener.xml`, etc. Don't put everything
    in the `services.xml` file, do it in public projects with only a few services. If you have more than one type of service
    Inside your app, create a separate config file under the `services/` directory.
