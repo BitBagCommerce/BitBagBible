@@ -20,7 +20,7 @@ It is extended based on the experience of the whole BitBag team for everybody's 
 - #### [4.2 Events](doc/GithubBuilds/1_BuildSyntaxSubchapter.md)
 - #### [4.3 Jobs and strategy](doc/GithubBuilds/2_EventsSubchapter.md)
 - #### [4.4 Step context](doc/GithubBuilds/3_JobsAndStrategySubchapter.md)
-- #### [4.5 Example builds](doc/GithubBuilds/4_StepContextForBuildsSubchapter.md)
+- #### [4.5 Build steps explanation](doc/GithubBuilds/4_StepContextForBuildsSubchapter.md)
 - #### [4.6 Example builds](doc/GithubBuilds/5_ExampleBuildsSubchapter.md)
 
 # General
