@@ -1,7 +1,7 @@
 # Github CI process
-We are required to test all changes through github actions, every change in plugin must have passed the test
-before changes can be committed to the main branch.
-Our standard is to create a build files in each of our plugins. The `.github/workflows` directory
+We require to run GitHub Actions builds on all PRs. Every change must pass the build
+before changes can be merged to the main/master branch.
+Our standard is to create build files for each of our plugins. The `.github/workflows` directory
 must contain `build.yml` and `coding_standard.yml` files.
 # Subchapters
 ### [1. Build file syntax](./GithubBuilds/1_BuildSyntaxSubchapter.md)
