@@ -1,5 +1,5 @@
 ### Events:
-1. Builds must work for bellow events:
+1. Builds must work for events listed bellow:
    - push
    - pull request
    - release, where releases has type 'created'.
