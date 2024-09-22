@@ -8,5 +8,5 @@ must contain `build.yml` and `coding_standard.yml` files.
 ### [2. Events](./GithubBuilds/2_EventsSubchapter.md)
 ### [3. Jobs and Strategy for builds](./GithubBuilds/3_JobsAndStrategySubchapter.md)
 ### [4. Steps context of the builds files](./GithubBuilds/4_StepContextForBuildsSubchapter.md)
-### [5. Example full builds files](./GithubBuilds/5_ExampleBuildsSubchapter.md)
+### [5. Builds files examples](./GithubBuilds/5_ExampleBuildsSubchapter.md)
 
