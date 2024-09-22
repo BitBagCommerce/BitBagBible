@@ -1,4 +1,4 @@
-# Developing Sylius plugins
+# Development
 
 1. Use traits for customizing models and/or repositories and use them inside your `tests/Application/src` for testing. This way we avoid handling reference conflicts in the final app.
 2. Entity fields in public projects (vendors) have to be `protected` instead of `private` to make them possible of being extended in final app.
