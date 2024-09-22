@@ -10,7 +10,7 @@ It is extended based on the experience of the whole BitBag team for everybody's 
 ### [2. Architecture](doc/Architecture.md)
 - #### [2.1 Frameworks](doc/Architecture/1_FrameworksSubchapter.md)
 - #### [2.2 Tools](doc/Architecture/2_ToolsSubchapter.md)
-### [3. Developing Plugins](doc/DevelopingPlugins.md)
+### [3. Development](doc/DevelopingPlugins.md)
 - #### [3.1 Code Style](doc/DevelopingPlugins/1_CodeStyleSubchapter.md)
 - #### [3.2 Testing](doc/DevelopingPlugins/2_TestingSubchapter.md)
 - #### [3.3 Workflow](doc/DevelopingPlugins/3_WorkflowSubchapter.md)
